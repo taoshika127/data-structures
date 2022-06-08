@@ -7,7 +7,7 @@ var Queue = function() {
   var headIndex = 0;
   var tailIndex = 0;
 
-  // Implement the methods below
+  // Implement the methods below.
   someInstance.enqueue = function(value) {
     storage[tailIndex] = value;
     tailIndex ++;
