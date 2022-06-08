@@ -17,9 +17,6 @@ var Queue = function() {
     var removed = storage[headIndex];
     delete storage[headIndex];
     headIndex ++;
-    if (headIndex < 0) {
-      headIndex = 0;
-    }
     return removed;
   };
 
