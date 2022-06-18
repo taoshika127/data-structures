@@ -6,19 +6,19 @@ var Set = function() {
 
 var setPrototype = {};
 
-setPrototype.add = function(item) {
+setPrototype._add = function(item) {
   if (!this._storage.hasOwnProperty(item)) {
     this._storage[item] = item;
   }
 
 };
 
-setPrototype.contains = function(item) {
+setPrototype._contains = function(item) {
   return this._storage.hasOwnProperty(item);
 };
 
-setPrototype.remove = function(item) {
-  if (this.contains(item)) {
+setPrototype._remove = function(item) {
+  if (this._contains(item)) {
     delete this._storage[item];
   }
 };
