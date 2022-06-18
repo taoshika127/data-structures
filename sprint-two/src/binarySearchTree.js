@@ -1,60 +1,60 @@
 var BinarySearchTree = function(value) {
   var tree = Object.create(BSTMethods);
-  tree.value = value;
-  tree.left = null;
-  tree.right = null;
+  tree._value = value;
+  tree._left = null;
+  tree._right = null;
   return tree;
 };
 
 var BSTMethods = {
-  insert: function(val) {
-    if (!this.value) {
-      this.value = val;
+  _insert: function(val) {
+    if (!this._value) {
+      this._value = val;
     }
-    if (this.value === val) {
+    if (this._value === val) {
       return;
     }
-    if (this.value < val) {
-      if (this.right === null) {
-        this.right = BinarySearchTree(val);
+    if (this._value < val) {
+      if (this._right === null) {
+        this._right = BinarySearchTree(val);
       } else {
-        this.right.insert(val);
+        this._right._insert(val);
       }
     }
-    if (this.value > val) {
-      if (this.left === null) {
-        this.left = BinarySearchTree(val);
+    if (this._value > val) {
+      if (this._left === null) {
+        this._left = BinarySearchTree(val);
       } else {
-        this.left.insert(val);
+        this._left._insert(val);
       }
     }
   },
 
-  contains: function(val) {
-    if (this.value === null) {
+  _contains: function(val) {
+    if (this._value === null) {
       return false;
     }
-    if (this.value === val) {
+    if (this._value === val) {
       return true;
     }
-    if (this.left === null && this.right === null) {
+    if (this._left === null && this._right === null) {
       return false;
     }
-    if (this.value < val) {
-      return this.right.contains(val);
+    if (this._value < val) {
+      return this._right._contains(val);
     }
-    if (this.value > val) {
-      return this.left.contains(val);
+    if (this._value > val) {
+      return this._left._contains(val);
     }
   },
 
-  depthFirstLog: function(cb) {
-    cb(this.value);
-    if (this.left) {
-      this.left.depthFirstLog(cb);
+  _depthFirstLog: function(cb) {
+    cb(this._value);
+    if (this._left) {
+      this._left._depthFirstLog(cb);
     }
-    if (this.right) {
-      this.right.depthFirstLog(cb);
+    if (this._right) {
+      this._right._depthFirstLog(cb);
     }
   }
 };
@@ -63,8 +63,8 @@ var BSTMethods = {
 
 /*
  * Complexity: What is the time complexity of the above functions?
-insert: O(log n)
-contains: O(log n)
-depthFirstLog: O(n)
+_insert: O(log n)
+_contains: O(log n)
+_depthFirstLog: O(n)
 
  */
