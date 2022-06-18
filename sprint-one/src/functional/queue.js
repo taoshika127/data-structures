@@ -9,14 +9,6 @@ var Queue = function() {
 
   // Implement the methods below.
   someInstance.enqueue = function(value) {
-<<<<<<< HEAD
-  };
-
-  someInstance.dequeue = function() {
-  };
-
-  someInstance.size = function() {
-=======
     storage[tailIndex] = value;
     tailIndex ++;
   };
@@ -34,7 +26,6 @@ var Queue = function() {
       queueSize = 0;
     }
     return queueSize;
->>>>>>> 833792c9a8dc343dff8fc6f6f5676b31b74e7ead
   };
 
   return someInstance;

@@ -1,9 +1,6 @@
 var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-<<<<<<< HEAD
-};
-=======
   this.storage = {};
   this.headIndex = 0;
   this.tailIndex = 0;
@@ -34,4 +31,3 @@ var newStack = new Queue();
 
 
 
->>>>>>> 833792c9a8dc343dff8fc6f6f5676b31b74e7ead

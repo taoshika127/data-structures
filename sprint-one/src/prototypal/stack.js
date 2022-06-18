@@ -1,11 +1,6 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-<<<<<<< HEAD
-};
-
-var stackMethods = {};
-=======
   var newStack = Object.create(stackMethods);
   newStack.count = 0;
   newStack.storage = {};
@@ -33,4 +28,3 @@ var stackMethods = {
 
 
 
->>>>>>> 833792c9a8dc343dff8fc6f6f5676b31b74e7ead

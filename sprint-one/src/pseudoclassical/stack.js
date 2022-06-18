@@ -1,9 +1,6 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-<<<<<<< HEAD
-};
-=======
   this.storage = {};
   this.count = 0;
 };
@@ -27,4 +24,3 @@ Stack.prototype.size = function() {
 };
 
 var newStack = new Stack();
->>>>>>> 833792c9a8dc343dff8fc6f6f5676b31b74e7ead
