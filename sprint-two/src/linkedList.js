@@ -52,9 +52,6 @@ var Node = function(value) {
   return node;
 };
 
-// Create a new node newNode
-var newNode = new Node(value);
-
 /*
  * Complexity: What is the time complexity of the above functions?
  */

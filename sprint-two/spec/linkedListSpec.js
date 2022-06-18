@@ -52,4 +52,13 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should update the tail when a node is added to the tail', function() {
+    linkedList.addToTail(1);
+    linkedList.addToTail(2);
+    expect(linkedList.tail.value).to.equal(2);
+    linkedList.addToTail(3);
+    expect(linkedList.tail.value).to.equal(3);
+    linkedList.removeHead();
+    expect(linkedList.tail.value).to.equal(3);
+  });
 });

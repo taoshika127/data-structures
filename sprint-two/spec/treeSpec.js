@@ -7,7 +7,7 @@ describe('tree', function() {
 
   it('should have methods named "addChild" and "contains", and a property named "value"', function() {
     expect(tree.addChild).to.be.a('function');
-    expect(tree.contains).to.be.a('function');
+    expect(tree._contains).to.be.a('function');
     expect(tree.hasOwnProperty('value')).to.equal(true);
   });
 
@@ -18,12 +18,12 @@ describe('tree', function() {
 
   it('should return true for a value that the tree contains', function() {
     tree.addChild(5);
-    expect(tree.contains(5)).to.equal(true);
+    expect(tree._contains(5)).to.equal(true);
   });
 
   it('should return false for a value that was not added', function() {
     tree.addChild(5);
-    expect(tree.contains(6)).to.equal(false);
+    expect(tree._contains(6)).to.equal(false);
   });
 
   it('should be able to add children to a tree\'s child', function() {
@@ -37,8 +37,16 @@ describe('tree', function() {
     tree.addChild(6);
     tree.children[0].addChild(7);
     tree.children[1].addChild(8);
-    expect(tree.contains(7)).to.equal(true);
-    expect(tree.contains(8)).to.equal(true);
+    expect(tree._contains(7)).to.equal(true);
+    expect(tree._contains(8)).to.equal(true);
+  });
+
+  it('should add another level to the tree and correctly detect the nested children', function() {
+    tree.addChild(1);
+    tree.children[0].addChild(2);
+    tree.children[0].children[0].addChild(3);
+    expect(tree.children[0].children[0].children[0].value).to.equal(3);
+    expect(tree._contains(3)).to.equal(true);
   });
 
 });
