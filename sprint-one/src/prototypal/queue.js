@@ -3,30 +3,29 @@ var Queue = function() {
   // but try not not reference your old code in writing the new style.
   var newQueue = Object.create(queueMethods);
   newQueue.storage = {};
-  newQueue.headIndex = 0;
-  newQueue.tailIndex = 0;
+  newQueue.enqueued = 0;
+  newQueue.dequeued = 0;
 
   return newQueue;
 };
 
 var queueMethods = {
   enqueue: function(value) {
-    this.storage[this.tailIndex] = value;
-    this.tailIndex ++;
+    this.storage[this.enqueued] = value;
+    this.enqueued ++;
   },
+
   dequeue: function() {
-    var removed = this.storage[this.headIndex];
-    delete this.storage[this.headIndex];
-    this.headIndex ++;
-    return removed;
-  },
-  size: function() {
-    var queueSize = this.tailIndex - this.headIndex;
-    if (queueSize < 0) {
-      queueSize = 0;
+    if (this.dequeued >= this.enqueued) {
+      return undefined;
     }
-    return queueSize;
+    var dequeuedItem = this.storage[this.dequeued];
+    delete this.storage[this.dequeued];
+    this.dequeued++;
+    return dequeuedItem;
+  },
+
+  size: function() {
+    return this.enqueued - this.dequeued;
   }
 };
-
-var queueMethods = {};

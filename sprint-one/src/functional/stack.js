@@ -5,24 +5,24 @@ var Stack = function() {
   var storage = {};
   var count = 0;
 
-  // Implement the methods below.
-  someInstance.push = function(value) {
-    storage[count] = value;
-    count ++;
+  someInstance.push = function (val) {
+    storage[count] = val;
+    count++;
   };
 
-  someInstance.pop = function() {
-    delete storage[count];
-    count --;
-    if (count < 0) {
-      count = 0;
+  someInstance.pop = function () {
+    if (count === 0) {
+      return undefined;
     }
-    return storage[count];
+    count--;
+    var popped = storage[count];
+    delete storage[count];
+    return popped;
   };
 
   someInstance.size = function() {
     return count;
-  };
+  }
 
   return someInstance;
 };
